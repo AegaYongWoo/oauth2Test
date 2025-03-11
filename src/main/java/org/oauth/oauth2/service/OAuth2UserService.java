@@ -27,7 +27,7 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
         final Map<String, Object> attributes = oauth2User.getAttributes();
         final String oauthId = String.valueOf(attributes.get("id"));
         final String oauthType = userRequest.getClientRegistration().getRegistrationId();
-        final String nickname = String.valueOf(attributes.get("properties"));
+        final String nickname = String.valueOf(((Map<String, Object>)attributes.get("properties")).get("nickname"));
 
         log.info(oauthId);
         log.info(oauthType);
